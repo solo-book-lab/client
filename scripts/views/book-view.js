@@ -1,12 +1,21 @@
-"use strict";
+'use strict';
+var app = app || {};
 
-var bookView = bookView || {};
+(function (module) {
+    const bookView = {};
 
-(function (module){
-    function 
+    bookView.initIndexPage = () => {
+        $('main section').hide();
+        $('#books').empty().show();
+        app.Card.all.map(card => $('#books').append(card.toHtml()));   
+    }
 
+    bookView.initDetailPage = (ctx) => {
+        $('main section').hide();
+        $('#books').empty().show();
+        console.log(ctx.card);
+        $('#books').append(ctx.card.toHtml());
+    }
 
-
-
-
-})(bookView);
+    module.bookView = bookView;
+})(app);
