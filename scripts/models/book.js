@@ -17,6 +17,11 @@ var app = app || ();
         $.get('https://kcbooksdb.herokuapp.com/api/v1/books')
         .done(console.log);
     }
+    Book.prototype.toHtml = function () {
+        let fillTemplate = Handlebars.compile($('#book-template').text());
+        return fillTemplate(this);
+    }
+
 module.Book = Book;
 
 })(app);
