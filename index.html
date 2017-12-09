@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script id = "book-template" type="text/x-handlebars-template">
+        
+        
         <div>
             <h1>{{title}}</h1>
             <h2>{{author}}</h2>
@@ -13,13 +15,33 @@
             <img src = '{{image_url}}'>
             <p>{{{description}}}</p>
         </div>
+
     </script>
 
 </head>
 <body>
     <div id = 'main-body'></div>
+
+    <nav>
+        <ul>
+            <li><a href = "/" id = "books">Books</a></li>
+            <li><a href = "/about" id = "about">About</a></li>
+            <li><a href = "/new" id = "new">New</a></li>
+        </ul>
+    </nav>
     
     <div id = "bookList"></div>
+
+    <fieldset>
+        <form>
+            <input type = "text" name = "title">
+            <input type = "text" name = "author">
+            <input type = "text" name = "isbn">
+            <input type = "text" name = "image_url">
+            <input type = "text" name = "description">
+            <button type = "submit">SUBMIT</button>
+        </form>
+    </fieldset>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
