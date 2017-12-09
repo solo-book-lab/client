@@ -5,16 +5,16 @@ var app = app || {};
     const bookView = {};
 
     bookView.initIndexPage = () => {
-        $('main section').hide();
+        $('#main-body').hide();
         $('#books').empty().show();
-        app.Card.all.map(card => $('#books').append(card.toHtml()));   
+        app.Book.all.map(book => $('#bookList').append(book.toHtml()));   
     }
 
     bookView.initDetailPage = (ctx) => {
-        $('main section').hide();
+        $('#main-body').hide();
         $('#books').empty().show();
         console.log(ctx.card);
-        $('#books').append(ctx.card.toHtml());
+        $('#bookList').append(ctx.card.toHtml());
     }
 
     module.bookView = bookView;

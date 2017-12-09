@@ -6,25 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script id = "book-template" type="text/x-handlebars-template">
-    <div>
-         <h1>{{title}}</h1>
-         <h2>{{author}}</h2>
-         <h2>{{isbn}}</h2>
-         <h2>{{image_url}}</h2>
-         <h2>{{description}}</h2>
-
-
-    </div>
-    
+        <div>
+            <h1>{{title}}</h1>
+            <h2>{{author}}</h2>
+            <h3>{{isbn}}</h3>
+            <img src = '{{image_url}}'>
+            <p>{{description}}</p>
+        </div>
     </script>
-
-
 
 </head>
 <body>
-    <div id = "bookList">
+    <div id = 'main-body'></div>
+    
+    <div id = "bookList"></div>
 
-    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
