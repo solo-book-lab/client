@@ -16,6 +16,12 @@ const API_URL = 'http://localhost:3000';
 
     Book.all = [];
 
+    Book.create = book => {
+        $.post(`${API_URL}/api/v1/new`, book)
+            .then(console.log)
+            .catch(console.error);
+    }
+
     Book.fetchAll = (cb) => {
         $.get(`${API_URL}/api/v1/books`)
         .then(Book.loadAll)

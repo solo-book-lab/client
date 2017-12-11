@@ -18,5 +18,23 @@ var app = app || {};
         $('#bookList').append(ctx.book.toHtml());
     }
 
+    bookView.initNewPage = (ctx) => {
+        $('nav').hide();
+        $('#bookList').empty().show();
+
+        $('#newBook').on('submit', function () {
+            event.preventDefault();
+            const newBook = {
+                title: this.title.value,
+                author: this.author.value,
+                isbn: this.isbn.value,
+                image_url: this.image_url.value,
+                description: this.description.value
+
+            };
+            app.Book.create(newBook);
+        }); 
+    }
+
     module.bookView = bookView;
 })(app);

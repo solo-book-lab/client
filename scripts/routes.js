@@ -4,6 +4,8 @@ page ('/',(ctx,next) => {
 
 page('/books/:id', app.Book.fetchOne, app.bookView.initDetailPage);
 
+page('/new', app.bookView.initNewPage);
+
 page('*', (ctx, next) => { 
     console.log('Nothing to see here!'); 
 });
