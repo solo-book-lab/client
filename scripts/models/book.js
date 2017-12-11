@@ -1,8 +1,8 @@
 "use strict";
 
 var app = app || {};
-const API_URL = 'https://kcbooksdb.herokuapp.com';
-// const API_URL = 'http://localhost:3000';
+// const API_URL = 'https://kcbooksdb.herokuapp.com';
+const API_URL = 'http://localhost:3000';
 
 (function(module) {
     function Book (obj) {
@@ -23,6 +23,17 @@ const API_URL = 'https://kcbooksdb.herokuapp.com';
         .fail(console.error);
 
     }
+
+    Book.fetchOne = (ctx, cb) => {
+        $.get(`${API_URL}/api/v1/book/${ctx.params.id}`)
+            .then(data => {
+                console.log(data);
+                ctx.book = new Book(data[0]);
+                cb();
+            })
+            .fail(console.error);
+    };
+
     Book.loadAll = (data) => {
         Book.all = data.map(obj => new Book(obj));
     }
