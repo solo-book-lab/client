@@ -14,6 +14,7 @@
             <h3>{{isbn}}</h3>
             <img src = '{{image_url}}'>
             <p>{{{description}}}</p>
+            <button data-method="update">UPDATE</button>
         </div>
 
     </script>
@@ -34,19 +35,35 @@
 
         <fieldset>
             <form id = "newBook">
-                <label for="title">Title:</label>
-                <input type = "text" name = "title">
+                <label for="title" >Title:</label>
+                <input type = "text" name = "title" required>
                 <label for ="author">Author:</label>
-                <input type = "text" name = "author">
+                <input type = "text" name = "author" required>
                 <label for ="isbn">ISBN:</label>
-                <input type = "text" name = "isbn">
+                <input type = "text" name = "isbn" required>
                 <label for ="Image_url">Image_url:</label>
-                <input type = "text" name = "image_url">
+                <input type = "text" name = "image_url" required>
                 <label for ="description">Description:</label>
-                <input type = "text" name = "description">
+                <input type = "text" name = "description" required>
                 <button type = "submit">SUBMIT</button>
             </form>
         </fieldset>
+
+        <fieldset>
+                <form id = "updateForm">
+                    <label for="title" >Title:</label>
+                    <input type = "text" name = "title" required>
+                    <label for ="author">Author:</label>
+                    <input type = "text" name = "author" required>
+                    <label for ="isbn">ISBN:</label>
+                    <input type = "text" name = "isbn" required>
+                    <label for ="Image_url">Image_url:</label>
+                    <input type = "text" name = "image_url" required>
+                    <label for ="description">Description:</label>
+                    <input type = "text" name = "description" required>
+                    <button type = "submit">SUBMIT</button>
+                </form>
+            </fieldset>
     </main>
 
 

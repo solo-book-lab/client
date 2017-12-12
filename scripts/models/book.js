@@ -22,6 +22,21 @@ const API_URL = 'http://localhost:3000';
             .catch(console.error);
     }
 
+    Book.update = (id, data) => {
+        console.log( id );
+        console.log( 'data', data );
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${id}`,
+            method: 'PUT',
+            data: data
+        })
+            .then(data => {
+                console.log(data);
+                page(`/books/${id}`);
+            })
+            .fail(console.error);
+    }
+
     Book.fetchAll = (cb) => {
         $.get(`${API_URL}/api/v1/books`)
         .then(Book.loadAll)
