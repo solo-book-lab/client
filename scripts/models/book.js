@@ -22,11 +22,11 @@ const API_URL = 'http://localhost:3000';
             .catch(console.error);
     }
 
-    Book.update = (id, data) => {
-        console.log( id );
+    Book.update = (book_id, data) => {
+        console.log('this is in book.update ', book_id );
         console.log( 'data', data );
         $.ajax({
-            url: `${API_URL}/api/v1/books/${id}`,
+            url: `${API_URL}/api/v1/books/${book_id}`,
             method: 'PUT',
             data: data
         })
