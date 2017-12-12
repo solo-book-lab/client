@@ -7,16 +7,19 @@ var app = app || {};
     bookView.initIndexPage = (ctx) => {
         // $('#main-body').hide();
         $('#bookList').empty().show();
-        $('button[data-method]').hide();
+        $('#about').hide();
+        $('.button').hide();
         $("#newBook").parent().hide();
         $('#updateForm').parent().hide();
-        app.Book.all.map(book => $('#bookList').append(book.toHtml()));   
+        app.Book.all.map(book => $('#bookList').append(book.toHtml()));  
+         
     }
 
     bookView.initUpdatePage = (ctx, cb) => {
             console.log('ctx', ctx.book)
             const book = ctx.book;
             $("nav").show();
+            $('#about').hide();
             $("#bookList").hide();
             $("#newBook").parent().hide();
             $("#updateForm").parent().show();
@@ -41,12 +44,15 @@ var app = app || {};
     
                 app.Book.update(book.book_id, updatedData);
                 console.log('this is book id ', book.book_id);
+                app.bookView.initIndexPage();
+                page('/');
             });
 
     }
 
     bookView.initDetailPage = (ctx) => {
         $('nav').hide();
+        $('#about').hide();
         $('fieldset').hide();
         $('#bookList').empty().show();
         console.log(ctx.book);
@@ -54,12 +60,19 @@ var app = app || {};
         $('button[data-method="update"]').on('click', function () {
             page(`/books/${ctx.book.book_id}/update`);
         });
+
+        $('button[data-method="delete"]').on('click', function(){
+            app.Book.delete();
+            page(`/`);
+        })
     }
 
     bookView.initNewPage = (ctx) => {
         $('nav').show();
-        
+        $('#about').hide();
+        $('#newBook').parent().show();
         $('#updateForm').parent().hide();
+        $('#about').hide();
         $('#bookList').empty().show();
 
         $('#newBook').on('submit', function () {
@@ -75,6 +88,7 @@ var app = app || {};
             app.Book.create(newBook);
 
             app.bookView.initIndexPage();
+            page('/');
         }); 
     }
 

@@ -22,17 +22,31 @@ const API_URL = 'http://localhost:3000';
             .catch(console.error);
     }
 
+    Book.delete = (book_id, data) => {
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${book_id}`,
+            method: 'DELETE',
+            data: data
+        })
+        .then(data => {
+            console.log(data);
+            page(`/`);
+        })
+        .fail(console.error);
+
+    }
+
     Book.update = (book_id, data) => {
-        console.log('this is in book.update ', book_id );
-        console.log( 'data', data );
+        // console.log('this is in book.update ', book_id );
+        // console.log( 'data', data );
         $.ajax({
             url: `${API_URL}/api/v1/books/${book_id}`,
             method: 'PUT',
             data: data
         })
-            .then(data => {
+            .done(data => {
                 console.log(data);
-                page(`/books/${id}`);
+                page(`/`);
             })
             .fail(console.error);
     }
