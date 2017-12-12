@@ -16,6 +16,41 @@ const API_URL = 'https://kcbooksdb.herokuapp.com';
 
     Book.all = [];
 
+    Book.create = book => {
+        $.post(`${API_URL}/api/v1/new`, book)
+            .then(console.log)
+            .catch(console.error);
+    }
+
+    Book.delete = (book_id, data) => {
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${book_id}`,
+            method: 'DELETE',
+            data: data
+        })
+        .then(data => {
+            console.log(data);
+            page(`/`);
+        })
+        .fail(console.error);
+
+    }
+
+    Book.update = (book_id, data) => {
+        // console.log('this is in book.update ', book_id );
+        // console.log( 'data', data );
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${book_id}`,
+            method: 'PUT',
+            data: data
+        })
+            .done(data => {
+                console.log(data);
+                page(`/`);
+            })
+            .fail(console.error);
+    }
+
     Book.fetchAll = (cb) => {
         $.get(`${API_URL}/api/v1/books`)
         .then(Book.loadAll)
@@ -23,6 +58,17 @@ const API_URL = 'https://kcbooksdb.herokuapp.com';
         .fail(console.error);
 
     }
+
+    Book.fetchOne = (ctx, cb) => {
+        $.get(`${API_URL}/api/v1/book/${ctx.params.id}`)
+            .then(data => {
+                console.log(data);
+                ctx.book = new Book(data[0]);
+                cb();
+            })
+            .fail(console.error);
+    };
+
     Book.loadAll = (data) => {
         Book.all = data.map(obj => new Book(obj));
     }

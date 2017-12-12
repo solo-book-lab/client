@@ -9,39 +9,69 @@
         
         
         <div>
-            <h1>{{title}}</h1>
+            <h1><a href="/books/{{book_id}}">{{title}}</a></h1>
             <h2>{{author}}</h2>
             <h3>{{isbn}}</h3>
             <img src = '{{image_url}}'>
             <p>{{{description}}}</p>
+            <button class ='button' data-method="update">UPDATE</button>
+            <button class ='button' data-method="delete">DELETE</button>
         </div>
 
     </script>
 
 </head>
 <body>
-    <div id = 'main-body'></div>
+    <main id = 'main-body'>
 
-    <nav>
-        <ul>
-            <li><a href = "/" id = "books">Books</a></li>
-            <li><a href = "/about" id = "about">About</a></li>
-            <li><a href = "/new" id = "new">New</a></li>
-        </ul>
-    </nav>
-    
-    <div id = "bookList"></div>
+        <nav>
+            <ul>
+                <li><a href = "./" id = "books">Books</a></li>
+                <li><a href = "./about" id = "about">About</a></li>
+                <li><a href = "./new" id = "new">New</a></li>
+            </ul>
+        </nav>
+        
+        <div id = "bookList"></div>
 
-    <fieldset>
-        <form>
-            <input type = "text" name = "title">
-            <input type = "text" name = "author">
-            <input type = "text" name = "isbn">
-            <input type = "text" name = "image_url">
-            <input type = "text" name = "description">
-            <button type = "submit">SUBMIT</button>
-        </form>
-    </fieldset>
+        <fieldset>
+            <form id = "newBook">
+                <label for="title" >Title:</label>
+                <input type = "text" name = "title" required>
+                <label for ="author">Author:</label>
+                <input type = "text" name = "author" required>
+                <label for ="isbn">ISBN:</label>
+                <input type = "text" name = "isbn" required>
+                <label for ="Image_url">Image_url:</label>
+                <input type = "text" name = "image_url" required>
+                <label for ="description">Description:</label>
+                <input type = "text" name = "description" required>
+                <button type = "submit">SUBMIT</button>
+            </form>
+        </fieldset>
+
+        <fieldset>
+                <form id = "updateForm">
+                    <label for="title" >Title:</label>
+                    <input type = "text" name = "title" required>
+                    <label for ="author">Author:</label>
+                    <input type = "text" name = "author" required>
+                    <label for ="isbn">ISBN:</label>
+                    <input type = "text" name = "isbn" required>
+                    <label for ="Image_url">Image_url:</label>
+                    <input type = "text" name = "image_url" required>
+                    <label for ="description">Description:</label>
+                    <input type = "text" name = "description" required>
+                    <button type = "submit">SUBMIT</button>
+                </form>
+            </fieldset>
+
+            <section id = "about">
+                Charlie ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit mi at eros auctor, vel pellentesque risus luctus. Nam in sem ac diam lobortis egestas. Nulla nec magna maximus, lobortis orci in, cursus arcu. Donec arcu nibh, sollicitudin at lectus et, fermentum vehicula nunc. Integer dictum lacinia dignissim. Donec eu pellentesque arcu, a ultrices turpis. Praesent at nisi nec augue pellentesque tristique a eget magna. Quisque lacinia nisi ac viverra cursus. Proin urna quam, accumsan eget felis vitae, convallis imperdiet leo. Quisque sit amet tortor scelerisque, pharetra dolor sit amet, volutpat purus. Duis laoreet velit sit amet lacinia elementum. Vivamus lacinia turpis a orci rhoncus, ut gravida ex fermentum.
+
+
+            </section>
+    </main>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
