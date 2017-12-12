@@ -1,8 +1,8 @@
 "use strict";
 
 var app = app || {};
-// const API_URL = 'https://kcbooksdb.herokuapp.com';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://kcbooksdb.herokuapp.com';
+// const API_URL = 'http://localhost:3000';
 
 (function(module) {
     function Book (obj) {
@@ -20,6 +20,35 @@ const API_URL = 'http://localhost:3000';
         $.post(`${API_URL}/api/v1/new`, book)
             .then(console.log)
             .catch(console.error);
+    }
+
+    Book.delete = (book_id, data) => {
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${book_id}`,
+            method: 'DELETE',
+            data: data
+        })
+        .then(data => {
+            console.log(data);
+            page(`/`);
+        })
+        .fail(console.error);
+
+    }
+
+    Book.update = (book_id, data) => {
+        // console.log('this is in book.update ', book_id );
+        // console.log( 'data', data );
+        $.ajax({
+            url: `${API_URL}/api/v1/books/${book_id}`,
+            method: 'PUT',
+            data: data
+        })
+            .done(data => {
+                console.log(data);
+                page(`/`);
+            })
+            .fail(console.error);
     }
 
     Book.fetchAll = (cb) => {
