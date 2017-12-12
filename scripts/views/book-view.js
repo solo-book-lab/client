@@ -33,7 +33,6 @@ var app = app || {};
 
             };
             app.Book.create(newBook);
-            console.log('this is the new book', newBook);
         }); 
     }
 
