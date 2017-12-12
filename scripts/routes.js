@@ -20,7 +20,7 @@ page('*', (ctx, next) => {
 
 
 
-page.base('/book-lab/client');
+page.base('/client');
 
 
 
