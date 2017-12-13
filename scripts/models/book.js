@@ -22,6 +22,15 @@ const API_URL = 'http://localhost:3000';
             .catch(console.error);
     }
 
+    Book.find = (cb, data) => {
+        $.get(`${API_URL}/api/v1/search`)
+            .then(data => {
+                Book.loadAll(data)
+                cb();
+            })
+            .catch(console.error);
+    }
+
     Book.delete = (book_id, data) => {
         $.ajax({
             url: `${API_URL}/api/v1/books/${book_id}`,

@@ -12,8 +12,18 @@ var app = app || {};
         $("#newBook").parent().hide();
         $('#updateForm').parent().hide();
         app.Book.all.map(book => $('#bookList').append(book.toHtml()));  
+
+        $('#search').on('click', function () {
+            const searchTerm = $('input[name="search"]').val() 
+            console.log(searchTerm);   
+            // page(`/search?search=${searchTerm}`);
+            app.Book.find(bookView.initIndexPage);
+
+        });
          
     }
+
+    
 
     bookView.initUpdatePage = (ctx, cb) => {
             console.log('ctx', ctx.book)
@@ -47,6 +57,11 @@ var app = app || {};
                 app.bookView.initIndexPage();
                 page('/');
             });
+
+    }
+
+    bookView.searchResults = () => {
+        app.Book.find()
 
     }
 
