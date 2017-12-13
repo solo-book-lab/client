@@ -1,8 +1,8 @@
 "use strict";
 
 var app = app || {};
-const API_URL = 'https://kcbooksdb.herokuapp.com';
-// const API_URL = 'http://localhost:3000';
+// const API_URL = 'https://kcbooksdb.herokuapp.com';
+const API_URL = 'http://localhost:3000';
 
 (function(module) {
     function Book (obj) {
@@ -19,6 +19,15 @@ const API_URL = 'https://kcbooksdb.herokuapp.com';
     Book.create = book => {
         $.post(`${API_URL}/api/v1/new`, book)
             .then(console.log)
+            .catch(console.error);
+    }
+
+    Book.find = (cb, data) => {
+        $.get(`${API_URL}/api/v1/search`)
+            .then(data => {
+                Book.loadAll(data)
+                cb();
+            })
             .catch(console.error);
     }
 

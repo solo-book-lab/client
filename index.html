@@ -9,7 +9,7 @@
         
         
         <div>
-            <h1><a href="/books/{{book_id}}">{{title}}</a></h1>
+            <h1><a href="/client/books/{{book_id}}">{{title}}</a></h1>
             <h2>{{author}}</h2>
             <h3>{{isbn}}</h3>
             <img src = '{{image_url}}'>
@@ -26,13 +26,19 @@
 
         <nav>
             <ul>
-                <li><a href = "./" id = "books">Books</a></li>
-                <li><a href = "./about" id = "about">About</a></li>
-                <li><a href = "./new" id = "new">New</a></li>
+                <li><a href = "/client/" id = "books">Books</a></li>
+                <li><a href = "/client/about" id = "about">About</a></li>
+                <li><a href = "/client/new" id = "new">New</a></li>
             </ul>
         </nav>
+        <fieldset>
+            <label for="search">Search</label>
+            <input type = "text" name = "search" required>
+            <button id="search">SEARCH</button>
+        </fieldset>
         
         <div id = "bookList"></div>
+        <div id = "searchList"></div>
 
         <fieldset>
             <form id = "newBook">
@@ -77,8 +83,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src ='/scripts/models/book.js'></script>
-    <script src ='/scripts/views/book-view.js'></script>
-    <script src ='/scripts/routes.js'></script>
+    <script src ='./scripts/models/book.js'></script>
+    <script src ='./scripts/views/book-view.js'></script>
+    <script src ='./scripts/routes.js'></script>
 </body>
 </html>
