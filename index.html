@@ -22,18 +22,21 @@
 
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href = "/client/" id = "books">Books</a></li>
+            <li><a href = "/client/about" id = "about">About</a></li>
+            <li><a href = "/client/new" id = "new">New</a></li>
+        </ul>
+    </nav>
+
     <main id = 'main-body'>
 
-        <nav>
-            <ul>
-                <li><a href = "/client/" id = "books">Books</a></li>
-                <li><a href = "/client/about" id = "about">About</a></li>
-                <li><a href = "/client/new" id = "new">New</a></li>
-            </ul>
-        </nav>
+       
         <fieldset>
             <label for="search">Search</label>
-            <input type = "text" name = "search" required>
+            <input id= "searchTerm" type = "text" name = "search" required>
             <button id="search">SEARCH</button>
         </fieldset>
         
